@@ -148,6 +148,78 @@ Cron example:
 
 The map renders affected roads, affected intersections, numbered police deployment points, all barricade plan layers, recommended closures, diversion routes, and an on-map legend. Click a road, marker, or route for its explanation and metrics.
 
+## Flipkart Office Scenario Walkthrough
+
+The screenshots below show an example unplanned critical accident near the Flipkart office area around Gear School Road / Bhoganahalli, Bengaluru. This scenario demonstrates the complete operator workflow: entering an event, watching the live pipeline, reading the plain-English response summary, and inspecting individual map layers.
+
+> Note: The exact result depends on the selected road segment. A small location shift can change the road context from a connected through-road to a local access road, which changes whether diversions are recommended.
+
+### 1. Event Entry
+
+![Flipkart office event entry form](docs/assets/flipkart-office/01-event-entry-form.png)
+
+The operator enters an unplanned accident at critical priority, marks the event as non-corridor, selects the Flipkart office location, and sets the time to 18:30. Because this is an evening peak period, the interface warns that peak-hour impact and staffing pressure will increase.
+
+### 2. Live Pipeline Monitor
+
+![Live pipeline monitor during response generation](docs/assets/flipkart-office/02-live-pipeline-monitor.png)
+
+The monitor shows the response pipeline running stage by stage. It displays the active script, status, live log output, and generated artifacts such as training data, model, road network, impact prediction, manpower plan, diversion routes, and map dashboard.
+
+### 3. Plain-English Decision Summary
+
+![Plain-English response summary](docs/assets/flipkart-office/03-response-summary.png)
+
+The result screen translates model outputs into an operational response. In this critical peak-hour accident case, the system estimates a longer duration, marks nearby road segments as affected, assigns available officers, recommends a minimal protective barricade plan, and separates direct bypass routes from experimental pressure-release routes.
+
+### 4. Event Creation Screen On Deployment
+
+![Public Streamlit deployment event screen](docs/assets/flipkart-office/04-public-event-screen.png)
+
+The public Streamlit deployment opens directly into the event creation screen. Operators can pick a location on the map, tune cause/priority/closure settings, and generate a response without manually running scripts.
+
+### 5. Recommended Barricade Layer
+
+![Recommended barricade layer near Flipkart office](docs/assets/flipkart-office/05-recommended-barricade-layer.png)
+
+The recommended barricade layer highlights the road edges selected for protection. For a critical accident, this can include a minimal set of segments around the incident point to create a safety buffer while keeping the surrounding network usable.
+
+### 6. Affected Intersections
+
+![Affected intersections near Flipkart office](docs/assets/flipkart-office/06-affected-intersections.png)
+
+Affected intersections are shown as small markers around the impact area. These are junctions the system considers relevant for observation, traffic control, or possible escalation if congestion spreads.
+
+### 7. Police Deployment
+
+![Police deployment near Flipkart office](docs/assets/flipkart-office/07-police-deployment.png)
+
+Police deployment points show where officers should be placed. Numbered blue circles indicate recommended officer counts at each junction. In peak-hour critical cases, the optimizer may assign all available officers and keep no reserve.
+
+### 8. Affected Roads
+
+![Affected roads near Flipkart office](docs/assets/flipkart-office/08-affected-roads.png)
+
+The affected-roads layer shows road segments expected to experience direct slowdown. Red segments are high-impact roads. In this scenario, the event touches a connected through-road network, so the affected area extends beyond the immediate pin.
+
+### 9. Bernoulli Pressure Field
+
+![Bernoulli pressure field near Flipkart office](docs/assets/flipkart-office/09-bernoulli-pressure-field.png)
+
+The Bernoulli pressure field is an experimental planning layer. It colours roads by traffic tension rather than by recommended action. Green means low pressure; yellow/red means higher pressure. This layer helps compare where traffic stress may concentrate after the event.
+
+### 10. Bernoulli-Optimal Diversion Candidates
+
+![Bernoulli-optimal diversion candidates](docs/assets/flipkart-office/10-bernoulli-diversion-candidates.png)
+
+Dashed blue Bernoulli routes are pressure-release candidates. They are not automatic public instructions for every driver. They show lower-potential paths that may help traffic escape the affected area if congestion builds.
+
+### 11. Direct Diversion Route
+
+![Direct diversion route around the affected area](docs/assets/flipkart-office/11-direct-diversion-route.png)
+
+The direct diversion route is the most operationally actionable route. It shows a practical bypass around the affected road/barricade using connected roads near the office area.
+
 ## Bernoulli-Tension Diversion
 
 The automatic diversion stage includes an experimental fluid-dynamics heuristic. Each road edge is treated as a flow channel with a Bernoulli-like potential:
