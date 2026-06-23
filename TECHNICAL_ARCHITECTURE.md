@@ -244,24 +244,43 @@ flowchart TD
 
     ST --> MAIN --> BOOT
     MAIN --> STATE
-    MAIN --> P04 & P05 & P06 & P07 & P08
+    MAIN --> P04
+    MAIN --> P05
+    MAIN --> P06
+    MAIN --> P07
+    MAIN --> P08
     MON --> STATE
 
-    P04 --> NU & DP & RS
-    P05 --> NU & CP[OR-Tools]
+    P04 --> NU
+    P04 --> DP
+    P04 --> RS
+    P05 --> NU
+    P05 --> CP[OR-Tools]
     P06 --> NU
-    P07 --> NU & BP
-    P08 --> MU & NU
+    P07 --> NU
+    P07 --> BP
+    P08 --> MU
+    P08 --> NU
 
     P01 --> CSV --> TRAIN
     P02 --> OSM --> GRAPH
     P03 --> TRAIN --> MODEL
-    P04 --> MODEL & GRAPH --> PRED
-    P05 --> PRED & GRAPH --> PRED
-    P06 --> PRED & GRAPH --> PRED
-    P07 --> PRED & GRAPH --> PRED
+    P04 --> MODEL
+    P04 --> GRAPH
+    GRAPH --> PRED
+    P05 --> PRED
+    P05 --> GRAPH
+    GRAPH --> PRED
+    P06 --> PRED
+    P06 --> GRAPH
+    GRAPH --> PRED
+    P07 --> PRED
+    P07 --> GRAPH
+    GRAPH --> PRED
     P08 --> PRED --> DASH
-    P09 --> MODEL & PRED --> MLDB
+    P09 --> MODEL
+    P09 --> PRED
+    PRED --> MLDB
 
     P06 -.->|optional| CITY
     P07 -.->|optional| SUMO
@@ -374,12 +393,17 @@ flowchart LR
     SRC --> V1 --> V2 --> V3 --> F1 --> F2 --> F3 --> F4 --> S1
     S1 --> M1 --> M2 --> M3 --> S3
     S3 --> I1 --> I2 --> I3 --> I4
-    I4 --> O1 & O2 & O3
+    I4 --> O1
+    I4 --> O2
+    I4 --> O3
     O1 --> D2
     O2 --> D3
     O3 --> D4
     I4 --> D1
-    D1 & D2 & D3 & D4 --> D5
+    D1 --> D5
+    D2 --> D5
+    D3 --> D5
+    D4 --> D5
 ```
 
 ### Detailed Sequence for a Single Event
