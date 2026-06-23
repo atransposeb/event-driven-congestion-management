@@ -1,4 +1,0 @@
-libspatialindex-dev
-build-essential
-git
-curl

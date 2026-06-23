@@ -3,9 +3,7 @@ title: Bengaluru Traffic Congestion Manager
 emoji: 🚦
 colorFrom: indigo
 colorTo: gray
-sdk: streamlit
-sdk_version: 1.37.1
-app_file: streamlit_app.py
+sdk: docker
 pinned: false
 license: mit
 ---
