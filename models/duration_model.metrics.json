@@ -1,0 +1,19 @@
+{
+  "metrics": {
+    "mae": 13.020126185358016,
+    "rmse": 31.141402672280876,
+    "r2": 0.7260300088571238
+  },
+  "params": {
+    "n_estimators": 350,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "objective": "reg:squarederror",
+    "tree_method": "hist",
+    "enable_categorical": true,
+    "random_state": 42,
+    "n_jobs": -1
+  }
+}

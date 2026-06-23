@@ -1,0 +1,9 @@
+{
+  "mae": 1.3162590375809469,
+  "rmse": 2.9113821026299833,
+  "r2": -0.006165066599271851,
+  "model_type": "xgboost",
+  "target": "report_creation_delay_min",
+  "training_rows": 7960,
+  "warning": "The source dataset has no event end/resolution timestamp; this model does not predict congestion duration."
+}
