@@ -14,6 +14,8 @@ Production-ready Python 3.10+ pipeline for predicting traffic impact duration, i
 
 ## Architecture
 
+See [`TECHNICAL_ARCHITECTURE.md`](./TECHNICAL_ARCHITECTURE.md) for complete system architecture, component diagrams, data pipeline, algorithms, API, and roadmap.
+
 ```mermaid
 flowchart LR
     A[cleaned_gridlock.csv] --> B[Prepare Data]
