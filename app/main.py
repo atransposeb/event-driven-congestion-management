@@ -184,6 +184,15 @@ def inject_design_system() -> None:
     )
 
 
+def render_hf_banner() -> None:
+    if os.environ.get("SPACE_ID"):
+        st.info(
+            "This app runs on Hugging Face's free-tier infrastructure. Map tiles and layers may render "
+            "slowly — please be patient after clicking or toggling layers.",
+            icon="🚦",
+        )
+
+
 def render_hero() -> None:
     st.markdown(
         """
@@ -201,6 +210,7 @@ def render_hero() -> None:
         """,
         unsafe_allow_html=True,
     )
+    render_hf_banner()
 
 
 def render_sidebar() -> None:
